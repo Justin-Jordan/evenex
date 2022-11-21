@@ -1,0 +1,5 @@
+name: evenex
+type: module
+description: Provide evenex template intégration for drupal
+package: Custom
+core_version_requirement: ^9 || ^10
