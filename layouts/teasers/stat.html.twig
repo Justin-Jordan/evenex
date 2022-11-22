@@ -1,15 +1,13 @@
 {% if content %}
-	<div {{ attributes.addClass('single-count col')}}>
-		{% if content.number|has_value %}
-			{% if content.number.layout_builder_add_block %}
-				{{ content.number }}
-			{% endif %}
-			<div class="count-number number h2" data-target="{{ content.number|striptags }}"></div>
+	{% if content.number|has_value %}
+		{% if content.number.layout_builder_add_block %}
+			{{ content.number }}
 		{% endif %}
-		{% if content.element|has_value %}
-			<div {{ region_attributes.question.addClass('count-name h4') }}>
-				{{ content.element }}
-			</div>
-		{% endif %}
-	</div>
+		<div class="count-number number h2" data-target="{{ content.number|layout_value[0][0]["#context"]["value"] }}"></div>
+	{% endif %}
+	{% if content.element|has_value %}
+		<div {{ region_attributes.question.addClass('count-name h4') }}>
+			{{ content.element }}
+		</div>
+	{% endif %}
 {% endif %}

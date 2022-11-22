@@ -1,0 +1,42 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-countdown-section')}}>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="first-content">
+						{% if content.title|has_value %}
+							<h2 {{ region_attributes.title.addClass('ecs-title') }}>
+								{{ content.title }}
+							</h2>
+						{% endif %}
+						{% if content.detail|has_value %}
+							<div {{ region_attributes.detail.addClass('ecs-detail') }}>
+								{% for item in content.detail|array_elements(region_attributes.detail.addClass('detail-info')) %}
+									{{ item }}
+								{% endfor %}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-lg-8">
+					{% if content.text|has_value %}
+						<div {{ region_attributes.text.addClass('ecs-description') }}>
+							{{ content.text }}
+						</div>
+					{% endif %}
+
+					{% if content.stat %}
+						<div class="evenex-countdown-banner">
+							<div class="banner-handler row">
+								{% for item in content.stat|array_elements(region_attributes.stat.addClass('single-count col')) %}
+									{{ item }}
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endif %}

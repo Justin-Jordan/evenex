@@ -1,22 +1,20 @@
 {% if content %}
-	<div {{ attributes.addClass('detail-info')}}>
-		{% if content.icon or content.question %}
-			<span class="detail-info__icon">
-				{% if content.icon|has_value %}
-					{{ content.icon }}
-				{% endif %}
-				{% if content.question|has_value %}
-					<span {{ region_attributes.question.addClass('question') }}>
-						{{ content.question }}
-					</span>
-				{% endif %}
-			</span>
-		{% endif %}
+	{% if content.icon or content.question %}
+		<span class="detail-info__icon">
+			{% if content.icon|has_value %}
+				{{ content.icon }}
+			{% endif %}
+			{% if content.question|has_value %}
+				<span {{ region_attributes.question.addClass('question') }}>
+					{{ content.question }}
+				</span>
+			{% endif %}
+		</span>
+	{% endif %}
 
-		{% if content.answer|has_value %}
-			<div {{ region_attributes.answer.addClass('detail-info__text') }}>
-				{{ content.answer }}
-			</div>
-		{% endif %}
-	</div>
+	{% if content.answer|has_value %}
+		<div {{ region_attributes.answer.addClass('detail-info__text') }}>
+			{{ content.answer }}
+		</div>
+	{% endif %}
 {% endif %}
