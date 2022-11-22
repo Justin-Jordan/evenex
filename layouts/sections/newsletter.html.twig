@@ -1,0 +1,23 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addClass('evenex-suscribe-form-teaser-handler')}}>
+		<div class="container">
+			<div class="banner-content">
+				{% if content.title|has_value %}
+					<h2 {{ region_attributes.title.addClass('text-indicator h3') }}>
+						{{ content.title }}
+					</h2>
+				{% endif %}
+				{% if content.form|has_value %}
+					{{ content.form }}
+				{% endif %}
+
+			</div>
+		</div>
+	</section>
+{% endif %}
