@@ -1,0 +1,39 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-become-sponsor-section-handler')}}>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="left-element">
+						{% if content.title|has_value %}
+							<h2 {{ region_attributes.title.addClass('head-text') }}>
+								{{ content.title }}
+							</h2>
+						{% endif %}
+						{% if content.description|has_value %}
+							<div {{ region_attributes.title.addClass('sponsor-text-descriptor') }}>
+								{{ content.description }}
+							</div>
+						{% endif %}
+
+						{% if content.callToAction %}
+							<div {{ region_attributes.title.addClass('btn') }}>
+								{{ content.callToAction }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-lg-8">
+					{% if content.sponsor %}
+						<div class="right-element">
+							<div class="logo-sponsors">
+								{% for item in content.sponsor|array_elements(region_attributes.sponsor.addClass('single-logo')) %}
+									{{ item }}
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
