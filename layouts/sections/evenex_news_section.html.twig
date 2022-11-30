@@ -1,0 +1,36 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-newsroom')}}>
+		<div class="container">
+			{% if content.title|has_value %}
+				<div class="row">
+					<div {{ region_attributes.title.addClass('evenex-newsroom__title') }}>
+						<h2 class="h1">{{ content.title }}</h2>
+					</div>
+				</div>
+			{% endif %}
+			{% if content.articles|has_value %}
+				<div class="row">
+						{% for item in content.articles|array_elements(region_attributes.articles.addClass('col-lg-4 col-md-6')) %}
+							{{ item }}
+						{% endfor %}
+				</div>
+			{% endif %}
+
+			{% if content.link|has_value or content.icon|has_value %}
+				<div class="row">
+					<button class="evenex-newsroom__more">
+						{% if content.link %}
+							{{ content.link }}
+						{% endif %}
+
+						{% if content.icon %}
+							{{ content.icon }}
+						{% endif %}
+					</button>
+				</div>
+			{% endif %}
+
+		</div>
+	</section>
+
+{% endif %}
