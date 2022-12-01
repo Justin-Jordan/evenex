@@ -1,0 +1,55 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-last-year')}}>
+		<div class="container-fluid">
+			<div class="row">
+				{% if conten.backgroudImage|has_value or content.videoIcon|has_value %}
+					<div class="col-lg-7 col-md-6">
+						{% if content.backgroundImage.layout_builder_add_block %}
+							{{ content.backgroundImage }}
+						{% endif %}
+						{% if content.backgroundImage|layout_bg_img %}
+							{% set attributes = region_attributes.backgroundImage.merge(content.backgroundImage|layout_bg_img) %}
+						{% endif %}
+						<div {{ region_attributes.backgroundImage.addClass('video') }}>
+							<div class="evenex-last-year__video">
+
+								{% if content.videoIcon|has_value %}
+									<button {{ region_attributes.videoIcon.addClass('play-btn') }}>
+										{{ content.videoIcon }}
+									</button>
+								{% endif %}
+
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if content.title|has_value or content.description|has_value or content.link|has_value or content.icon|has_value %}
+					<div class="col-lg-5 col-md-6">
+						<div class="text">
+							{% if content.title|has_value %}
+								<div {{ region_attributes.title.addClass('evenex-last-year__title') }}>
+									<h2>{{ content.title }}</h2>
+								</div>
+							{% endif %}
+
+							{% if content.description|has_value %}
+								<div {{ region_attributes.description.addClass('evenex-last-year__description') }}>
+									{{ content.description }}
+								</div>
+							{% endif %}
+                            
+							{% if content.link|has_value or content.icon|has_value %}
+								<button class="evenex-last-year__call-to-action">
+									{{ content.link }}
+									{{ content.icon }}
+								</button>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+{% endif %}
