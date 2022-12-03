@@ -10,7 +10,7 @@
 							</h2>
 						{% endif %}
 						{% if content.detail|has_value %}
-							<div {{ region_attributes.detail.addClass('ecs-detail') }}>
+							<div class="ecs-detail">
 								{% for item in content.detail|array_elements(region_attributes.detail.addClass('detail-info')) %}
 									{{ item }}
 								{% endfor %}

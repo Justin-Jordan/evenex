@@ -1,0 +1,59 @@
+{% if content %}
+	<div {{ attributes.addClass('about-venue-info')}}>
+		<div class="about-venue-info__image-overlay"></div>
+		<div class="wrapper">
+			{% if content.title|has_value %}
+				<div {{ region_attributes.title.addClass('about-venue-info__title') }}>
+					<h4 class="h2">{{ content.title }}</h4>
+				</div>
+			{% endif %}
+			<div class="info">
+				{% if content.locationIcon|has_value or content.locationTitle|has_value or content.address|has_value %}
+					<div class="col-lg-5 col-md-5">
+						{% if content.locationIcon|has_value %}
+							<div {{ region_attributes.locationIcon.addClass('about-venue-info__icon') }}>
+								{{ content.locationIcon }}
+							</div>
+						{% endif %}
+
+						{% if content.locationTitle|has_value %}
+							<div {{ region_attributes.locationTitle.addClass('about-venue-info__sub-title') }}>
+								<h5 class="h4">{{ content.locationTitle }}</h5>
+							</div>
+						{% endif %}
+
+						{% if content.address|has_value %}
+							<div {{ region_attributes.address.addClass('about-venue-info__location') }}>
+								{{ content.address }}
+							</div>
+						{% endif %}
+
+					</div>
+				{% endif %}
+
+				{% if content.timeIcon|has_value or content.timeTitle|has_value or content.schedule|has_value %}
+					<div class="col-lg-7 col-md-7">
+						{% if content.timeIcon|has_value %}
+							<div {{ region_attributes.timeIcon.addClass('about-venue-info__icon') }}>
+								{{ content.timeIcon }}
+							</div>
+						{% endif %}
+						{% if content.timeTitle|has_value %}
+							<div {{ region_attributes.timeTitle.addClass('about-venue-info__sub-title') }}>
+								<h5 class="h4">{{ content.timeTitle }}</h5>
+							</div>
+						{% endif %}
+
+						{% if content.schedule|has_value %}
+							<div class="schedules">
+								{% for item in content.schedule|array_elements(region_attributes.schedule.addClass('schedule')) %}
+									{{ item }}
+								{% endfor %}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,13 @@
+{% if content %}
+	{% if content.day|has_value %}
+		<div {{ region_attributes.day.addClass('about-venue-info__text') }}>
+			{{ content.day }}
+		</div>
+	{% endif %}
+
+	{% if content.time|has_value %}
+		<div {{ region_attributes.day.addClass('about-venue-info__text about-venue-info--hour') }}>
+			{{ content.time }}
+		</div>
+	{% endif %}
+{% endif %}

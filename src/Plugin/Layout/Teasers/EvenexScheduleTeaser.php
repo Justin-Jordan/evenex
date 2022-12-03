@@ -7,31 +7,27 @@ use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
 
 /**
- * Evenex detail info element template
+ * Evenex schedule element
  *
  * @Layout(
- *   id = "evenex_detail_info_teaser",
- *   label = @Translation(" Evenex : Detail info element "),
+ *   id = "evenex_schedule_teaser",
+ *   label = @Translation(" Evenex : Schedule element "),
  *   category = @Translation("evenex"),
  *   path = "layouts/teasers",
- *   template = "detail_info",
- *   library = "evenex/detail_info",
+ *   template = "schedule_teaser",
  *   default_region = "icon",
  *   regions = {
- *     "icon" = {
- *       "label" = @Translation("icon"),
+ *     "day" = {
+ *       "label" = @Translation("day"),
  *     },
- *     "question" = {
- *       "label" = @Translation("question"),
- *     },
- *     "answer" = {
- *       "label" = @Translation("answer"),
+ *     "time" = {
+ *       "label" = @Translation("time"),
  *     },
  *   }
  * )
  */
 
-class EvenexDetailInfoTeaser extends FormatageModelsSection
+class EvenexScheduleTeaser extends FormatageModelsSection
 {
 
     /**
@@ -43,7 +39,7 @@ class EvenexDetailInfoTeaser extends FormatageModelsSection
     {
         // TODO Auto-generated method stub
         parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/teasers/detail_info.png");
+        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/teasers/schedule_element.png");
     }
 
     /**
@@ -75,22 +71,16 @@ class EvenexDetailInfoTeaser extends FormatageModelsSection
                     'loader' => 'static'
                 ],
                 'fields' => [
-                    'icon' => [
-                        'text_html' => [
-                            'label' => 'Icon',
-                            'value' => ''
-                        ]
-                    ],
-                    'question' => [
+                    'day' => [
                         'text' => [
-                            'label' => 'Question',
-                            'value' => 'When'
+                            'label' => 'Day',
+                            'value' => 'Day 01'
                         ]
                     ],
-                    'answer' => [
-                        'text_html' => [
-                            'label' => 'Reponse',
-                            'value' => 'September 20 - September 22'
+                    'time' => [
+                        'text' => [
+                            'label' => 'Time',
+                            'value' => '09 am'
                         ]
                     ],
                 ]

@@ -1,0 +1,14 @@
+{% if content %}
+	<section class="evenex-about-venue">
+		{% if content.info|has_value %}
+			{{ content.info }}
+		{% endif %}
+		{% if content.map|has_value %}
+			<div {{ region_attributes.map.addClass('evenex-about-venue__map') }}>
+				{{ content.map }}
+			</div>
+		{% endif %}
+
+	</section>
+
+{% endif %}
