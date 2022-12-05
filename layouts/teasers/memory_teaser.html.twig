@@ -1,0 +1,31 @@
+{% if content %}
+	<div {{ attributes.addClass('memory')}}>
+		{% if content.image|has_value %}
+			<div class="memory__image__inner">
+				<div {{ region_attributes.image.addClass('memory__image') }}>
+					{{ content.image }}
+				</div>
+			</div>
+		{% endif %}
+		{% if content.title|has_value or content.link|has_value or content.icon|has_value %}
+			<div class="memory__informations">
+				{% if content.title|has_value %}
+					<h4 {{ region_attributes.title.addClass('memory__informations__text') }}>{{ content.title }}</h4>
+				{% endif %}
+
+				{% if content.link|has_value or content.icon|has_value %}
+					<div class="memory__informations__more">
+						{# We need to add class "memory__informations__more__link" if want the link with the rigth effect #}
+						{% if content.link|has_value %}
+							{{ content.link }}
+						{% endif %}
+						{% if content.icon|has_value %}
+							{{ content.icon }}
+						{% endif %}
+
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
