@@ -14,8 +14,8 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *   label = @Translation(" Evenex : Detail info element "),
  *   category = @Translation("evenex"),
  *   path = "layouts/teasers",
- *   template = "detail_info",
  *   library = "evenex/detail_info",
+ *   template = "detail_info",
  *   default_region = "icon",
  *   regions = {
  *     "icon" = {

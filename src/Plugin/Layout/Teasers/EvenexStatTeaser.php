@@ -64,6 +64,8 @@ class EvenexStatTeaser extends FormatageModelsSection
     {
         return [
             'load_libray' => true,
+            'region_css_number' => 'h1',
+            'region_css_element' => 'h3',
             'infos' => [
                 'builder-form' => true,
                 'info' => [

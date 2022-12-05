@@ -75,6 +75,7 @@ class EvenexLastYearSection extends FormatageModelsSection
         return parent::defaultConfiguration() + [
             'css' => '',
             'load_library' => true,
+            'region_css_title' => 'h1',
             'content' => [
                 'builder-form' => true,
                 'info' => [

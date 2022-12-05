@@ -28,9 +28,9 @@
 					<div class="col-lg-5 col-md-6">
 						<div class="text">
 							{% if content.title|has_value %}
-								<div {{ region_attributes.title.addClass('evenex-last-year__title') }}>
-									<h2>{{ content.title }}</h2>
-								</div>
+								<h2 {{ region_attributes.title.addClass('evenex-last-year__title') }}>
+									{{ content.title }}
+								</h2>
 							{% endif %}
 
 							{% if content.description|has_value %}

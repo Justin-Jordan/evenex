@@ -2,12 +2,15 @@
 	{% if content.number|has_value %}
 		{% if content.number.layout_builder_add_block %}
 			{{ content.number }}
+		{% else %}
+			{% set number %}{{content.number|layout_value}}{% endset %}
+			<div {{region_attributes.number.addClass(['count-number','number'])}} data-target="{{ number|striptags|trim }}"></div>
 		{% endif %}
-		<div class="count-number number h2" data-target="{{ content.number|layout_value[0][0]["#context"]["value"] }}"></div>
 	{% endif %}
-	{% if content.element|has_value %}
-		<div {{ region_attributes.question.addClass('count-name h4') }}>
-			{{ content.element }}
-		</div>
-	{% endif %}
+
+{% endif %}
+{% if content.element|has_value %}
+	<div {{ region_attributes.element.addClass('count-name') }}>
+		{{ content.element }}
+	</div>
 {% endif %}
