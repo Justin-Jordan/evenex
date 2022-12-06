@@ -10,14 +10,22 @@
 							</h2>
 						{% endif %}
 						{% if content.description|has_value %}
-							<div {{ region_attributes.title.addClass('sponsor-text-descriptor') }}>
+							<div {{ region_attributes.description.addClass('sponsor-text-descriptor') }}>
 								{{ content.description }}
 							</div>
 						{% endif %}
 
-						{% if content.callToAction %}
-							<div {{ region_attributes.title.addClass('btn') }}>
-								{{ content.callToAction }}
+						{% if content.link|has_value or content.icon|has_value %}
+							<div class="btn">
+								<div class="sponsor-btn h5">
+									{% if content.link %}
+										{{ content.link }}
+									{% endif %}
+									{% if content.icon %}
+										{{ content.icon }}
+									{% endif %}
+
+								</div>
 							</div>
 						{% endif %}
 					</div>
