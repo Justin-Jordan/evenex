@@ -1,0 +1,45 @@
+{% if content %}
+	<footer {{ attributes.addclass('footer')}}>
+		{% if content.logo|has_value or content.description|has_value or conten.social|has_value %}
+			<div class="col-md-5 mx-auto">
+				{% if content.logo|has_value %}
+					<div {{ region_attributes.logo.addClass('footer__logo') }}>
+						{{ content.logo }}
+					</div>
+				{% endif %}
+				{% if content.description|has_value %}
+					<div {{ region_attributes.description.addClass('footer__description') }}>
+						{{ content.description }}
+					</div>
+				{% endif %}
+
+				{% if content.social|has_value %}
+					<div class="footer__social">
+						{% for item in content.social|array_elements(region_attributes.social.addClass('footer__social__link')) %}
+							{{ item }}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if content.copyright|has_value %}
+					<div {{ region_attributes.copyright.addClass('footer__copywrigth') }}>
+						{{ content.copyright }}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if content.bottomImage|has_value %}
+			{% if content.bottomImage.layout_builder_add_block %}
+				{{ content.bottomImage }}
+			{% endif %}
+			{% if content.bottomImage|layout_bg_img %}
+				{% set attributes = region_attributes.bottomImage.merge(content.bottomImage|layout_bg_img) %}
+			{% endif %}
+			<div {{ region_attributes.bottomImage.addClass('footer__bottom') }}></div>
+
+		{% endif %}
+
+	</footer>
+
+{% endif %}

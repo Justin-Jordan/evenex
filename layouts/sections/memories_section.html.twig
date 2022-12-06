@@ -1,5 +1,5 @@
 {% if content %}
-	<section { attributes.addclass('memories')}}>
+	<section {{ attributes.addclass('memories')}}>
 		<div class="container">
 			{% if content.title|has_value %}
 				<h2 {{ region_attributes.title.addClass('memories__title') }}>
