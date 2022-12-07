@@ -2,7 +2,7 @@
 	<section {{ attributes.addClass('evenex-last-year')}}>
 		<div class="container-fluid">
 			<div class="row">
-				{% if conten.backgroudImage|has_value or content.videoIcon|has_value %}
+				{% if content.backgroudImage|has_value or content.videoIcon|has_value %}
 					<div class="col-lg-7 col-md-6">
 						{% if content.backgroundImage.layout_builder_add_block %}
 							{{ content.backgroundImage }}

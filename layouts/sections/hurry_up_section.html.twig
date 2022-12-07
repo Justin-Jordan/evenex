@@ -1,0 +1,53 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addClass('hurry-up')}}>
+		<div class="col-lg-7 col-md-7 mx-auto">
+			{% if content.image|has_value or content.subtitle|has_value or content.title|has_value %}
+				<div class="header">
+					{% if content.image|has_value %}
+						<div {{ region_attributes.image.addClass('hurry-up__image') }}>
+							{{ content.image }}
+						</div>
+					{% endif %}
+
+					{% if content.title|has_value %}
+						<h3 {{ region_attributes.title.addClass('hurry-up__title') }}>{{ content.title }}</h3>
+					{% endif %}
+
+					{% if content.subTitle|has_value %}
+						<div {{ region_attributes.subTitle.addClass('hurry-up__subtitle') }}>{{ content.subTitle }}</div>
+					{% endif %}
+				</div>
+			{% endif %}
+			{% if content.text|has_value %}
+				<div {{ region_attributes.text.addClass('hurry-up__text') }}>
+					{{ content.text }}
+				</div>
+			{% endif %}
+			{% if content.link|has_value or content.icon|has_value %}
+				<div class="hurry-up__button">
+					{% if content.link|has_value %}
+						{{ content.link }}
+					{% endif %}
+
+					{% if content.icon|has_value %}
+						{{ content.icon }}
+					{% endif %}
+				</div>
+			{% endif %}
+
+
+		</div>
+		<div class="hurry-up__shape">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 100" preserveaspectratio="none">
+				<path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
+			</svg>
+		</div>
+	</section>
+
+{% endif %}
