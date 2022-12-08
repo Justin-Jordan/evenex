@@ -1,0 +1,29 @@
+{% if content %}
+	<section {{ attributes.addclass('evenex-speaker')}}>
+		{% if content.backgroundImage.layout_builder_add_block %}
+			{{ content.backgroundImage }}
+		{% endif %}
+		{% if content.backgroundImage|layout_bg_img %}
+			{% set attributes = region_attributes.backgroundImage.merge(content.backgroundImage|layout_bg_img) %}
+		{% endif %}
+		<div {{ region_attributes.backgroundImage.addClass('speaker-header') }}>
+			<div class="overlay"></div>
+			{% if content.title|has_value %}
+				<h2 {{ region_attributes.title.addClass('speaker-header__title') }}>{{ content.title }}</h2>
+			{% endif %}
+		</div>
+		{% if content.speakers|has_value %}
+			<div class="container last-content">
+				<div class="row">
+
+					{% for item in content.speakers|array_elements(region_attributes.speakers.addClass('col-lg-6 col-md-6')) %}
+						{{ item }}
+					{% endfor %}
+
+				</div>
+			</div>
+		{% endif %}
+
+	</section>
+
+{% endif %}

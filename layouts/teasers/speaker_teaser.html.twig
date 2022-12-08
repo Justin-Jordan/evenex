@@ -1,0 +1,33 @@
+{% if content %}
+	<div {{ attributes.addClass('single-speaker')}}>
+		<div class="row no-gutters">
+			{% if content.name|has_value or content.job|has_value or content.social|has_value %}
+				<div class="col-lg-6 col-sm-6 single-speaker__inner">
+					{% if content.name|has_value %}
+						<h2 {{ region_attributes.name.addClass('single-speaker__name') }}>{{ content.name }}</h2>
+					{% endif %}
+					{% if content.job|has_value %}
+						<div {{ region_attributes.job.addClass('single-speaker__job') }}>{{ content.job }}</div>
+					{% endif %}
+
+					{% if content.social|has_value %}
+						<div class="single-speaker__social">
+							{% for item in content.social|array_elements(region_attributes.social.addClass('single-speaker__social__link')) %}
+								{{ item }}
+							{% endfor %}
+						</div>
+					{% endif %}
+
+				</div>
+			{% endif %}
+
+			{% if content.image %}
+				<div class="col-lg-6 col-sm-6">
+					<div {{ region_attributes.image.addClass('single-speaker__image') }}>
+						{{ content.image }}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}
