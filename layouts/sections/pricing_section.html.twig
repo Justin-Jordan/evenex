@@ -1,0 +1,46 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addclass('evenex-pricing')}}>
+		<div class="evenex-pricing__over-image1">
+			<img src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/10/pricing_left_shap.png">
+		</div>
+		<div class="evenex-pricing__over-image2">
+			<img src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/10/pticing_right_shap.png" alt="">
+		</div>
+		<div class="evenex-pricing__background-overlay"></div>
+		{% if content.title|has_value %}
+			<h2 {{ region_attributes.title.addClass('evenex-pricing__title') }}>
+				{{ content.title }}
+			</h2>
+		{% endif %}
+
+		{% if content.tickets|has_value or content.terms|has_value %}
+			<div class="container">
+				{% if content.tickets|has_value %}
+					<div class="row">
+						{% for item in content.tickets|array_elements(region_attributes.tickets.addClass('wrapper col-md-6 col-lg-4')) %}
+							{{ item }}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if content.terms|has_value %}
+					<div class="row">
+						<div class="col-lg-9 col-md-6 col-sm-8 mx-auto">
+							<div {{ region_attributes.terms.addClass('evenex-pricing__text') }}>
+								{{ content.terms }}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+	</section>
+
+{% endif %}

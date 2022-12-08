@@ -1,0 +1,31 @@
+{% if content %}
+	<div {{ attributes.addClass('single-pricing')}}>
+		{% if content.mainBenefit|has_value %}
+			<div {{ region_attributes.mainBenefit.addClass('single-pricing__main-benefit') }}>
+				{{ content.mainBenefit }}
+			</div>
+		{% endif %}
+		{% if content.price|has_value %}
+			<div {{ region_attributes.price.addClass('single-pricing__price') }}>
+				{{ content.price }}
+			</div>
+		{% endif %}
+
+		{% if content.benefit|has_value %}
+			<div {{ region_attributes.benefit.addClass('single-pricing__benefit') }}>
+				{{ content.benefit }}
+			</div>
+		{% endif %}
+		{% if content.link|has_value or content.icon|has_value %}
+			<div class="single-pricing__link">
+				{% if content.icon|has_value %}
+					{{ content.icon }}
+				{% endif %}
+
+				{% if content.link|has_value %}
+					{{ content.link }}
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
