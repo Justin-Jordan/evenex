@@ -1,0 +1,21 @@
+{% if content %}
+	<div {{ attributes.addClass('evenex-reason')}}>
+		{% if content.icon|has_value %}
+			<div {{ region_attributes.icon.addClass('evenex-reason__icon') }}>
+				{{ content.icon }}
+			</div>
+		{% endif %}
+
+		{% if content.title|has_value %}
+			<h3 {{ region_attributes.title.addClass('evenex-reason__title') }}>
+				{{ content.title }}
+			</h3>
+		{% endif %}
+		{% if content.description|has_value %}
+			<div {{ region_attributes.description.addClass('evenex-reason__description') }}>
+				{{ content.description }}
+			</div>
+		{% endif %}
+
+	</div>
+{% endif %}
