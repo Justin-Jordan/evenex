@@ -1,0 +1,50 @@
+{% if content %}
+	<section {{ attributes.addclass('evenex-header')}}>
+		<div class="overlay"></div>
+		{% if content.image|has_value %}
+			<div {{ region_attributes.image.addClass('evenex-header__image') }}>
+				{{ content.image }}
+			</div>
+		{% endif %}
+
+		{% if content.title|has_value or content.date|has_value or content.location|has_value or content.callToAction|has_value or content.callToActionIcon|has_value or content.calenderLink|has_value or content.calenderIcon|has_value %}
+			<div class="container">
+				{% if content.title|has_value %}
+					<h1 {{ region_attributes.title.addClass('evenex-header__title') }}>
+						{{ content.title }}
+					</h1>
+				{% endif %}
+
+				{% if content.date|has_value %}
+					<div {{ region_attributes.date.addClass('evenex-header__date') }}>
+						{{ content.date }}
+					</div>
+				{% endif %}
+				{% if content.location|has_value %}
+					<div {{ region_attributes.location.addClass('evenex-header__location') }}>
+						{{ content.location }}
+					</div>
+				{% endif %}
+
+				{% if content.callToAction|has_value or content.CallToActionIcon|has_value or content.calenderLink|has_value or content.calendarIcon|has_value %}
+					<div class="wrapper">
+						{% if content.callToAction|has_value or content.callToActionIcon|has_value %}
+							<div class="evenex-header__call2action">
+								{{ content.callToActionIcon }}
+								{{ content.callToAction }}
+							</div>
+						{% endif %}
+
+						{% if content.calenderIcon|has_value or content.calenderLink|has_value %}
+							<div class="evenex-header__calender">
+								{{ content.calenderIcon }}
+								{{ content.calenderLink }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</section>
+
+{% endif %}
