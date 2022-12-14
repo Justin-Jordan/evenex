@@ -1,5 +1,5 @@
 {% if content %}
-	<section class="evenex-about-venue">
+	<section {{ attributes.addClass('evenex-about-venue')}}>
 		{% if content.info|has_value %}
 			{{ content.info }}
 		{% endif %}

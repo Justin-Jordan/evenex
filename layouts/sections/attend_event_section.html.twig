@@ -1,0 +1,26 @@
+{% if content %}
+	<div {{ attributes.addClass('section evenex-why-attend')}}>
+		<div class="container">
+			{% if content.title|has_value %}
+				<h2 {{ region_attributes.title.addClass('evenex-why-attend__title') }}>
+					{{ content.title }}
+				</h2>
+			{% endif %}
+			{% if content.description|has_value %}
+				<div {{ region_attributes.description.addClass('evenex-why-attend__description') }}>
+					{{ content.description }}
+				</div>
+			{% endif %}
+
+
+			{% if content.benefices|has_value %}
+				<div class="row">
+					{% for item in content.benefices|array_elements(region_attributes.benefices.addClass('col-md-4')) %}
+						{{ item }}
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endif %}
