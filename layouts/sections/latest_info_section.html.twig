@@ -1,0 +1,103 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-info')}}>
+		<div class="container">
+			<div class="row">
+				{% if content.title|has_value or content.tag|has_value or content.description|has_value or content.where|has_value or content.when|has_value or content.address|has_value or content.date|has_value or content.link|has_value or content.icon|has_value %}
+					<div class="col-md-6">
+						{% if content.tag|has_value %}
+							<div {{ region_attributes.tag.addClass('evenex-info__tag') }}>
+								{{ content.tag }}
+							</div>
+						{% endif %}
+						{% if content.title|has_value %}
+							<h2 {{ region_attributes.title.addClass('evenex-info__title') }}>
+								{{ content.title }}
+							</h2>
+						{% endif %}
+
+						{% if content.description %}
+							<div {{ region_attributes.description.addClass('evenex-info__text') }}>
+								{{ content.description }}
+							</div>
+						{% endif %}
+
+						{% if content.where|has_value or content.when|has_value or content.address|has_value or content.date|has_value %}
+							<div class="row">
+								{% if content.address|has_value or content.where|has_value %}
+									<div class="col-md-6">
+										{% if content.where|has_value %}
+											<div class="" {{ region_attributes.where.addClass('evenex-info__subtitle') }}>
+												{{ content.where }}
+											</div>
+										{% endif %}
+										{% if content.address|has_value %}
+											<div {{ region_attributes.address.addClass('evenex-info__text') }}>
+												{{ content.address }}
+											</div>
+										{% endif %}
+
+									</div>
+								{% endif %}
+
+								{% if content.when|has_value or content.date|has_value %}
+									<div class="col-md-6">
+										{% if content.when|has_value %}
+											<div {{ region_attributes.when.addClass('evenex-info__subtitle') }}>
+												{{ content.when }}
+											</div>
+										{% endif %}
+
+										{% if content.date|has_value %}
+											<div {{ region_attributes.date.addClass('evenex-info__text') }}>
+												{{ content.date }}
+											</div>
+										{% endif %}
+
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
+
+						{% if content.link|has_value or content.icon|has_value %}
+							<div class="row">
+								<div class="col-8">
+									<div class="evenex-info__link">
+										{% if content.icon|has_value %}
+											{{ content.icon }}
+										{% endif %}
+										{% if content.link|has_value %}
+											{{ content.link }}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						{% endif %}
+
+					</div>
+				{% endif %}
+
+				{% if content.imageOne|has_value or content.imageTwo|has_value %}
+					<div class="col-md-6">
+						<div class="video">
+							{% if content.imageOne|has_value %}
+								<div {{ region_attributes.imageOne.addClass('evenex-info__imageone') }}>
+									{{ content.imageOne }}
+								</div>
+							{% endif %}
+
+							{% if content.imageTwo|has_value %}
+								<div {{ region_attributes.imageTwo.addClass('evenex-info__imagetwo') }}>
+									{{ content.imageTwo }}
+								</div>
+							{% endif %}
+							<div class="evenex-info__icon">
+								<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+{% endif %}
