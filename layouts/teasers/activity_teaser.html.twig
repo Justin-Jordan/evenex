@@ -1,0 +1,56 @@
+{% if content %}
+	<div {{ attributes.addClass('evenex-activity')}}>
+		{% if content.title|has_value %}
+			<h3 {{ region_attributes.title.addClass('evenex-activity__title') }}>
+				{{ content.title }}
+			</h3>
+		{% endif %}
+		{% if content.descripton|has_value %}
+			<div {{ region_attributes.title.addClass('evenex-activity__description') }}>
+				{{ content.description }}
+			</div>
+		{% endif %}
+		{% if content.placeIcon|has_value or content.placeRoom|has_value or content.scheduleIcon|has_value or content.scheduleTime|has_value %}
+			<div class="place">
+				{% if content.scheduleIcon|has_value or content.scheduleTime|has_value %}
+					<div class="evenex-activity__time">
+						{% if content.scheduleIcon|has_value %}
+							<div {{ region_attributes.scheduleIcon.addClass('evenex-activity__time__icon') }}>
+								{{ content.scheduleIcon }}
+							</div>
+						{% endif %}
+						{% if content.scheduleTime|has_value %}
+							<div {{ region_attributes.scheduleTime.addClass('evenex-activity__time__schedule') }}>
+								{{ content.scheduleTime }}
+							</div>
+						{% endif %}
+
+					</div>
+				{% endif %}
+				{% if content.placeIcon|has_value or content.Room|has_value %}
+					<div class="evenex-activity__location">
+						{% if content.placeIcon|has_value %}
+							<div {{ region_attributes.placeIcon.addClass('evenex-activity__location__icon') }}>
+								{{ content.placeIcon }}
+							</div>
+						{% endif %}
+						{% if content.placeRoom|has_value %}
+							<div {{ region_attributes.placeIcon.addClass('evenex-activity__location__room') }}>
+								{{ content.placeRoom }}
+							</div>
+						{% endif %}
+
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if content.speakers|has_value %}
+			<div class="speakers">
+				{% for item in content.speakers|array_elements(region_attributes.speakers.addClass('evenex-activity__speaker')) %}
+					{{ item }}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
