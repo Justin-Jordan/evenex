@@ -1,0 +1,55 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-room')}}>
+		<div class="container">
+			{% if content.imageOne|has_value or content.imageTwo|has_value %}
+				<div class="row mb-5">
+					{% if content.imageOne|has_value %}
+						<div class="col-sm-12 col-md-6">
+							<div {{ region_attributes.imageOne.addClass('evenex-room__image') }}>
+								{{ content.imageOne }}
+							</div>
+						</div>
+					{% endif %}
+					{% if content.imageTwo|has_value %}
+						<div class="col-sm-12 col-md-6">
+							<div {{ region_attributes.imageTwo.addClass('evenex-room__image') }}>
+								{{ content.imageTwo }}
+							</div>
+						</div>
+					{% endif %}
+
+				</div>
+			{% endif %}
+
+			{% if content.title|has_value or content.description|has_value or content.icon|has_value or content.link|has_value %}
+				<div class="wrapper">
+					{% if content.title|has_value %}
+						<h2 {{ region_attributes.title.addClass('evenex-room__title') }}>
+							{{ content.title }}
+							<div class="evenex-room__separator"></div>
+						</h2>
+					{% endif %}
+					{% if content.description|has_value %}
+						<div {{ region_attributes.description.addClass('evenex-room__description') }}>
+							{{ content.description }}
+						</div>
+					{% endif %}
+
+
+					{% if content.icon|has_value or content.link|has_value %}
+						<div class="evenex-room__link">
+							{% if content.icon|has_value %}
+								{{ content.icon }}
+							{% endif %}
+
+							{% if content.link|has_value %}
+								{{ content.link }}
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</section>
+
+{% endif %}
