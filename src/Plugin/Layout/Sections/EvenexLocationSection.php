@@ -7,18 +7,30 @@ use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
 
 /**
- * Evenex About Venue section
+ * Evenex Location section
  * @Layout(
- *  id = "evenex_about_venue_section",
- *  label = @Translation("Evenex: About Venue section"),
+ *  id = "evenex_about_location_section",
+ *  label = @Translation("Evenex: Location section"),
  *  category = @Translation("evenex"),
  *  path = "layouts/sections",
- *  template = "about_venue_section",
- *  library = "evenex/about_venue_section",
+ *  template = "location_section",
+ *  library = "evenex/location_section",
  *  default_region = "info",
  *  regions = {
- *      "info" = {
- *       "label" = @Translation("Evenex: info region"),
+ *      "titleOne" = {
+ *       "label" = @Translation("Evenex: title one region"),
+ *      },
+ *      "titleTwo" = {
+ *       "label" = @Translation("Evenex: title two region"),
+ *      },
+ *      "location" = {
+ *       "label" = @Translation("Evenex: location region"),
+ *      },
+ *      "address" = {
+ *       "label" = @Translation("Evenex: address region"),
+ *      },
+ *      "link" = {
+ *       "label" = @Translation("Evenex: link region"),
  *      },
  *      "map" = {
  *       "label" = @Translation("Evenex: map region"),
@@ -27,7 +39,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * )
  */
 
-class EvenexAboutVenueSection extends FormatageModelsSection
+class EvenexLocationSection extends FormatageModelsSection
 {
 
     /**
@@ -38,7 +50,7 @@ class EvenexAboutVenueSection extends FormatageModelsSection
     {
         // TODO auto-generated method stub
         parent::__construct($configuration, $pludin_id, $plugin_definition, $styleGroupManager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/about_venue_section.png");
+        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/location_section.png");
     }
 
     /**
@@ -62,6 +74,9 @@ class EvenexAboutVenueSection extends FormatageModelsSection
         return parent::defaultConfiguration() + [
             'css' => '',
             'load_library' => true,
+            'region_css_titleOne' => 'h4',
+            'region_css_titleTwo' => 'h4',
+            'region_css_link' => 'h4',
             'content' => [
                 'builder-form' => true,
                 'info' => [
@@ -69,9 +84,33 @@ class EvenexAboutVenueSection extends FormatageModelsSection
                     'loader' => 'static',
                 ],
                 'fields' => [
-                    'info' => [
+                    'titleOne' => [
                         'text_html' => [
-                            'label' => 'Info',
+                            'label' => 'Title One',
+                            'value' => '',
+                        ]
+                    ],
+                    'titleTwo' => [
+                        'text_html' => [
+                            'label' => 'Title Two',
+                            'value' => '',
+                        ]
+                    ],
+                    'location' => [
+                        'text_html' => [
+                            'label' => 'Location',
+                            'value' => '',
+                        ]
+                    ],
+                    'address' => [
+                        'text_html' => [
+                            'label' => 'Address',
+                            'value' => '',
+                        ]
+                    ],
+                    'link' => [
+                        'text_html' => [
+                            'label' => 'Link',
                             'value' => '',
                         ]
                     ],

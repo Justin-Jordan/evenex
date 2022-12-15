@@ -1,0 +1,63 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-location')}}>
+		<div class="container">
+			<div class="row">
+				{% if content.titleOne|has_value or content.titleTwo|has_value or content.location|has_value or content.address|has_value or content.link|has_value %}
+					<div class="col-12 col-md-4">
+						<div class="wrapper">
+							<div class="overlay"></div>
+							{% if content.titleOne|has_value or content.location|has_value %}
+								<div class="evenex-location__inner">
+									{% if content.titleOne|has_value %}
+										<h3 {{ region_attributes.titleOne.addClass('evenex-location__title') }}>
+											{{ content.titleOne }}
+										</h3>
+									{% endif %}
+									{% if content.location|has_value %}
+										<div {{ region_attributes.location.addClass('evenex-location__text') }}>
+											{{ content.location }}
+										</div>
+									{% endif %}
+
+								</div>
+							{% endif %}
+							{% if content.titleTwo|has_value or content.address|has_value %}
+								<div class="evenex-location__inner">
+									{% if content.titleTwo|has_value %}
+										<h3 {{ region_attributes.titleTwo.addClass('evenex-location__title') }}>
+											{{ content.titleTwo }}
+										</h3>
+									{% endif %}
+
+									{% if content.address %}
+										<div {{ region_attributes.address.addClass('evenex-location__text') }}>
+											{{ content.address }}
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+
+							{% if content.link|has_value %}
+								<div {{ region_attributes.address.addClass('evenex-location__inner') }}>
+									{{ content.link }}
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+
+				{% if content.map|has_value %}
+					<div class="col-12 col-md-8">
+						<div {{ region_attributes.address.addClass('evenex-location__map') }}>
+                            {{ content.map }}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+
+		</div>
+
+	</section>
+
+{% endif %}
