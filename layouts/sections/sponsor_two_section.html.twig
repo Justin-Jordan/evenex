@@ -1,0 +1,40 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-sponsor')}}>
+		<div class="overlay"></div>
+		<div class="container">
+			{% if content.title %}
+				<h2 {{ region_attributes.title.addClass('evenex-sponsor__title') }}>
+					{{ content.title }}
+				</h2>
+			{% endif %}
+
+			<div {{ region_attributes.description.addClass('evenex-sponsor__description') }}>
+				{{ content.description }}
+			</div>
+
+			{% if content.sponsor|has_value %}
+				<div class="evenex-sponsor__logo__inner row">
+					{% for item in content.sponsor|array_elements(region_attributes.sponsor.addClass('evenex-sponsor__logo')) %}
+						{{ item }}
+					{% endfor %}
+				</div>
+			{% endif %}
+
+
+			{% if content.link|has_value or content.icon|has_value %}
+				<div class="row">
+					<div class="evenex-sponsor__link">
+						{% if content.icon|has_value %}
+							{{ content.icon }}
+						{% endif %}
+
+						{% if content.link|has_value %}
+							{{ content.link }}
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+
+{% endif %}
