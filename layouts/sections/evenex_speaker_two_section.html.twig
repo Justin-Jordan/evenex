@@ -1,0 +1,26 @@
+{% if content %}
+	<section {{ attributes.addclass('evenex-speaker2')}}>
+
+		<div class="container">
+			{% if content.title|has_value %}
+				<h2 {{ region_attributes.title.addClass('evenex-speaker2__title') }}>
+					{{ content.title }}
+				</h2>
+			{% endif %}
+			{% if content.description|has_value %}
+				<div {{ region_attributes.description.addClass('evenex-speaker2__description') }}>
+					{{ content.description }}
+				</div>
+			{% endif %}
+
+			{% if content.speakers %}
+				<div class="row">
+					{% for item in content.speakers|array_elements(region_attributes.speakers.addClass('col-md-6 col-lg-4')) %}
+						{{ item }}
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+
+	</section>
+{% endif %}

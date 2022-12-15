@@ -26,7 +26,7 @@
 								{% if content.address|has_value or content.where|has_value %}
 									<div class="col-md-6">
 										{% if content.where|has_value %}
-											<div class="" {{ region_attributes.where.addClass('evenex-info__subtitle') }}>
+											<div {{ region_attributes.where.addClass('evenex-info__subtitle') }}>
 												{{ content.where }}
 											</div>
 										{% endif %}
