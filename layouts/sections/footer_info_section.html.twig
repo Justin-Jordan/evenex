@@ -1,0 +1,91 @@
+{% if content %}
+	<div class="container-fluid">
+		<section {{ attributes.addclass('evenex-footer-info')}}>
+			<div class="overlay"></div>
+			<div class="container d-flex flex-wrap">
+				{% if content.day|has_value or content.date|has_value or content.hour|has_value %}
+					<div class="wrapper">
+						<div class="row no-gutters">
+							{% if content.day|has_value %}
+								<div {{ region_attributes.day.addClass('col-xs-12 col-sm-3 col-md-4 evenex-footer-info__day') }}>
+									{{ content.day }}
+								</div>
+							{% endif %}
+							{% if content.date|has_value or content.hour|has_value %}
+								<div class="col-xs-12 col-sm-6 col-md-8">
+									<div class="row no-gutters">
+										{% if content.date|has_value %}
+											<div class="col-md-12">
+												<div {{ region_attributes.date.addClass('evenex-footer-info__title') }}>
+													{{ content.date }}
+												</div>
+											</div>
+										{% endif %}
+
+										{% if content.hour|has_value %}
+											<div class="col-md-12">
+												<div {{ region_attributes.hour.addClass('evenex-footer-info__hour') }}>
+													{{ content.hour }}
+												</div>
+											</div>
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+
+				{% if content.locationIcon|has_value or content.location|has_value %}
+					<div class="wrapper address__inner">
+						<div class="row">
+							{% if content.locationIcon|has_value %}
+								<div class="col-4">
+									<div {{ region_attributes.locationIcon.addClass('evenex-footer-info__icon') }}>
+										{{ content.locationIcon }}
+									</div>
+								</div>
+							{% endif %}
+							{% if content.location|has_value %}
+								<div class="col-8 col-md-8">
+									<div {{ region_attributes.location.addClass('evenex-footer-info__title') }}>
+										{{ content.location }}
+									</div>
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+
+				{% if content.social|has_value %}
+					<div class="wrapper">
+						<div class="row">
+							<div class="evenex-footer-info__social">
+								{% for item in content.social|array_elements(region_attributes.social.addClass('evenex-footer-info__social__link')) %}
+									{{ item }}
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+				{% if content.link|has_value or content.icon|has_value %}
+					<div class="wrapper">
+						<div class="evenex-footer-info__ticket">
+							{% if content.icon|has_value %}
+								{{ content.icon }}
+							{% endif %}
+							{% if content.link|has_value %}
+								{{ content.link }}
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+
+			</div>
+		</section>
+	</div>
+
+{% endif %}
