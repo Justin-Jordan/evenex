@@ -1,0 +1,22 @@
+{% if content %}
+	<div class="wrapper">
+		<div {{ attributes.addClass('evenex-stat-element')}}>
+			{% if content.icon|has_value %}
+				<div {{ region_attributes.icon.addClass('evenex-stat-element__icon') }}>
+					{{ content.icon }}
+				</div>
+			{% endif %}
+			{% if content.number|has_value %}
+				<div {{ region_attributes.number.addClass('evenex-stat-element__value') }}>
+					{{ content.number }}
+				</div>
+			{% endif %}
+
+			{% if content.title %}
+				<div {{ region_attributes.title.addClass('evenex-stat-element__title') }}>
+					{{ content.title }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}

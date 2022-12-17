@@ -1,0 +1,135 @@
+{% if content %}
+	<section {{ attributes.addclass('evenex-shedule-section')}}>
+		{% if content.backgroundImage|has_value or content.title|has_value or content.description|has_value %}
+			{% if content.backgroundImage.layout_builder_add_block %}
+				{{ content.backgroundImage }}
+			{% endif %}
+			{% if content.backgroundImage|layout_bg_img %}
+				{% set attributes = region_attributes.backgroundImage.merge(content.backgroundImage|layout_bg_img) %}
+			{% endif %}
+
+			<div {{ region_attributes.backgroundImage.addClass('ess-header') }}>
+				<div class="container">
+					{% if content.title|has_value %}
+						<h3 {{ region_attributes.title.addClass('ess-header__title') }}>
+							{{ content.title }}
+						</h3>
+					{% endif %}
+					{% if content.description|has_value %}
+						<div {{ region_attributes.description.addClass('ess-header__desc') }}>
+							{{content.description}}
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		{% endif %}
+		<div class="evenex-shedule-tab">
+			<div class="container-xl p-0">
+				{% if content.dayOne|has_value or content.dayTwo|has_value or content.dayThree|has_value or content.dateOne|has_value or content.dateTwo|has_value or content.dateThree|has_value %}
+					<div class="tabs-content">
+						<div class="evenex-selection">
+							<ul class="nav nav-pills" role="tablist" id="btnTab">
+								{% if content.dayOne|has_value or content.dateOne|has_value %}
+									<li class="nav-item">
+										<a href="#first" class="nav-link active" id="mois-tab" data-toggle="tab" type="button" role="tab" aria-controls="shedule" aria-selected="true">
+											{% if content.dayOne|has_value %}
+												<h4 {{ region_attributes.dayOne.addClass('nl-title') }}>
+													{{ content.dayOne }}
+												</h4>
+											{% endif %}
+											{% if content.dateOne|has_value %}
+												<h5 {{ region_attributes.dateOne.addClass('nl-date') }}>
+													{{ content.dateOne }}
+												</h5>
+											{% endif %}
+
+										</a>
+									</li>
+								{% endif %}
+
+								{% if content.dayTwo|has_value or content.dateTwo|has_value %}
+									<li class="nav-item">
+										<a href="#deux" class="nav-link" id="annee-tab" data-toggle="tab" type="button" role="tab" aria-controls="shedule" aria-selected="false">
+											{% if content.dateTwo|has_value %}
+												<h4 {{ region_attributes.dayTwo.addClass('nl-title') }}>
+													{{ content.dayTwo }}
+												</h4>
+											{% endif %}
+
+											{% if content.dateTwo|has_value %}
+												<h5 {{ region_attributes.dateTwo.addClass('nl-date') }}>
+													{{ content.dateTwo }}
+												</h5>
+											{% endif %}
+										</a>
+									</li>
+								{% endif %}
+
+								{% if content.dayThree|has_value or content.dateThree|has_value %}
+									<li class="nav-item">
+										<a href="#trois" class="nav-link" id="trois-tab" data-toggle="tab" type="button" role="tab" aria-controls="shedule" aria-selected="false">
+											{% if content.dateThree|has_value %}
+												<h4 {{ region_attributes.daythree.addClass('nl-title') }}>
+													{{ content.dayThree }}
+												</h4>
+											{% endif %}
+
+											{% if content.dateThree|has_value %}
+												<h5 {{ region_attributes.dateThree.addClass('nl-date') }}>
+													{{ content.dateThree }}
+												</h5>
+											{% endif %}
+										</a>
+									</li>
+								{% endif %}
+
+							</ul>
+						</div>
+					</div>
+				{% endif %}
+				{% if content.dayOneContent|has_value or content.dayTwoContent|has_value or content.dayThree|has_value %}
+					<div class="content-tab">
+						<div class="tab-content">
+							{% if content.dayOneContent|has_value %}
+								<div class="tab-pane fade active show" id="first" role="tabpanel" aria-labelledby="first-tab">
+									{% for item in content.dayOneContent|array_elements(region_attributes.dayOneContent) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+
+							{% if content.dayTwoContent|has_value %}
+								<div class="tab-pane fade" id="deux" role="tabpanel" aria-labelledby="deux-tab">
+									{% for item in content.dayTwoContent|array_elements(region_attributes.dayTwoContent) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+							{% if content.dayThreeContent|has_value %}
+								<div class="tab-pane fade" id="trois" role="tabpanel" aria-labelledby="trois-tab">
+									{% for item in content.dayThreeContent|array_elements(region_attributes.dayThreeContent) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+		{% if content.icon|has_value or content.link|has_value %}
+			<div class="d-flex justify-content-center my-5">
+				<div class="evenex-btn h5">
+					{% if content.icon|has_value %}
+						{{ content.icon }}
+					{% endif %}
+
+					{% if content.link|has_value %}
+						{{ content.link }}
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

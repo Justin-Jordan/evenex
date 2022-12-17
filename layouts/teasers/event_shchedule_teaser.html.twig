@@ -1,0 +1,77 @@
+{% if content %}
+	<div {{ attributes.addClass('row no-gutters evenex-shedule-card')}}>
+		{% if content.image|has_value or content.name|has_value or content.job|has_value %}
+			<div class="col-lg-3 col-md-4">
+				<div class="esc-speaker">
+					{% if content.image|has_value %}
+						<div {{ region_attributes.image.addClass('esc-speaker__img') }}>
+							{{ content.image }}
+						</div>
+					{% endif %}
+					{% if content.name|has_value %}
+						<h4 {{ region_attributes.name.addClass('esc-speaker__name') }}>
+							{{ content.name }}
+						</h4>
+					{% endif %}
+
+					{% if content.job|has_value %}
+						<div {{ region_attributes.job.addClass('esc-speaker__designation') }}>
+							{{ content.job }}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+
+		{% if content.title|has_value or content.hourIcon|has_value or content.hour|has_value or content.roomIcon|has_value or content.room|has_value or content.description|has_value %}
+			<div class="col-lg-9 col-md-8">
+				<div class="shedule-desc">
+					{% if content.title|has_value %}
+						<h4 {{ region_attributes.title.addClass('shedule-desc__title') }}>
+							{{ content.title }}
+						</h4>
+					{% endif %}
+
+					{% if content.hourIcon|has_value or content.hour|has_value or content.roomIcon|has_value or content.room|has_value %}
+						<div class="shedule-desc__meta-info">
+							<div class="schedule-meta-info">
+								{% if content.hourIcon|has_value or content.hour|has_value %}
+									<span class="schedule-time room">
+										{% if content.hourIcon|has_value %}
+											{{ content.hourIcon }}
+										{% endif %}
+										{% if content.hour|has_value %}
+											{{ content.hour }}
+										{% endif %}
+
+									</span>
+								{% endif %}
+
+
+								{% if content.roomIcon|has_value or content.room|has_value %}
+									<span class="schedule-time">
+										{% if content.roomIcon|has_value %}
+											{{ content.roomIcon }}
+										{% endif %}
+
+										{% if content.room|has_value %}
+											{{ content.room }}
+										{% endif %}
+									</span>
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+					{% if content.description|has_value %}
+						<div {{ region_attributes.description.addClass('esc-speaker__designation') }}>
+							{{ content.description }}
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		{% endif %}
+
+	</div>
+{% endif %}

@@ -1,0 +1,64 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-schedule')}}>
+		<div class="container">
+			<h2 {{ region_attributes.title.addClass('evenex-schedule__title') }}>
+				{{ content.title }}
+			</h2>
+			<div class="row">
+				{% if content.dayOne|has_value or content.dayTwo|has_value or content.dayThree|has_value %}
+					<div class="col-sm-12 col-md-5 col-lg-5 mx-auto">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							{% if content.dayOne|has_value %}
+								<a class="evenex-session  nav-link active show" id="v-pills-tab-1" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">
+									{{ content.dayOne }}
+								</a>
+							{% endif %}
+
+							{% if content.dayTwo|has_value %}
+								<a class="evenex-session nav-link" id="v-pills-tab-2" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-1" aria-selected="false">
+									{{ content.dayTwo }}
+								</a>
+							{% endif %}
+							{% if content.dayThree|has_value %}
+								<a class="evenex-session nav-link" id="v-pills-tab-3" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">
+									{{ content.dayThree }}
+								</a>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+				{% if content.dayOneContent|has_value or content.dayTwoContent|has_value or content.dayThree|has_value %}
+					<div class="col-sm-12 col-md-7 col-lg-6 mx-auto">
+						<div class="tab-content" id="v-pills-tabContent">
+							{% if content.dayOneContent|has_value %}
+								<div class="tab-pane fade active show" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-tab-1">
+									{% for item in content.dayOneContent|array_elements(region_attributes.dayOneContent.addClass('col-sm-12')) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+
+							{% if content.dayTwoContent|has_value %}
+								<div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-tab-2">
+									{% for item in content.dayTwoContent|array_elements(region_attributes.dayTwoContent.addClass('col-sm-12')) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+							{% if content.dayThreeContent|has_value %}
+								<div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-tab-3">
+									{% for item in content.dayThreeContent|array_elements(region_attributes.dayThreeContent.addClass('col-sm-12')) %}
+										{{ item }}
+									{% endfor %}
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+{% endif %}

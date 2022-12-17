@@ -1,0 +1,34 @@
+{% if content %}
+	{% if content.day %}
+		<div {{ region_attributes.icon.addClass('evenex-session__icon') }}>
+			{{ content.icon }}
+		</div>
+	{% endif %}
+	{% if content.day|has_value or content.date|has_value or content.room|has_value %}
+		<div class="info">
+			{% if content.day|has_value %}
+				<h3 {{ region_attributes.day.addClass('evenex-session__day') }}>
+					{{ content.day }}
+				</h3>
+			{% endif %}
+			{% if content.date|has_value %}
+				<h4 {{ region_attributes.date.addClass('evenex-session__date') }}>
+					{{ content.date }}
+				</h4>
+			{% endif %}
+
+			{% if content.place|has_value %}
+				<div {{ region_attributes.date.addClass('evenex-session__place') }}>
+					{{ content.place }}
+				</div>
+			{% endif %}
+			{% if content.room|has_value %}
+				<div {{ region_attributes.room.addClass('evenex-session__location') }}>
+					{{ content.room }}
+				</div>
+			{% endif %}
+
+		</div>
+	{% endif %}
+
+{% endif %}
