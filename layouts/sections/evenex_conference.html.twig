@@ -1,0 +1,66 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addClass('evenex-conference')}}>
+		<div class="evenex-conference__overlay"></div>
+		{% if content.date|has_value or content.title|has_value or content.countdownDate|has_value %}
+			<div class="container">
+				<div class="evenex-conference__inner">
+					{% if content.date|has_value %}
+						<div {{ region_attributes.date.addClass('evenex-conference__subtitle') }}>
+							{{ content.date }}
+						</div>
+						<div class="evenex-conference__title-shap-light"></div>
+					{% endif %}
+					{% if content.title|has_value %}
+						<div class="col-sm-12 col-md-6 col-lg-6 mx-auto">
+							<h2 {{ region_attributes.title.addClass('evenex-conference__title') }}>
+								{{ content.date }}
+							</h2>
+						</div>
+					{% endif %}
+					{% if content.countdownDate|has_value %}
+						{% set countdownDate %}{{content.countdownDate|layout_value}}{% endset %}
+						<div id="evenex-conference-countdown" {{ region_attributes.number.addClass(['countdown__inner']) }} data-date="{{ countdownDate|striptags|trim }}">
+							<div class="col-sm-12 col-md-8 mx-auto">
+								<div class="row">
+									<div class="col-sm-12 col-md-6 col-lg-3">
+										<div class="countdown countdown--blue">
+											<div id="evenex-conference-countdown-days" class="countdown__number"></div>
+											<span class="countdown__time-division">Days</span>
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-6 col-lg-3">
+										<div class="countdown countdown--yellow">
+											<div id="evenex-conference-countdown-hours" class="countdown__number"></div>
+											<span class="countdown__time-division">Hours</span>
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-6 col-lg-3">
+										<div class="countdown countdown--blue">
+											<div id="evenex-conference-countdown-minutes" class="countdown__number"></div>
+											<span class="countdown__time-division">minutes</span>
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-6 col-lg-3">
+										<div class="countdown countdown--red">
+											<div id="evenex-conference-countdown-seconds" class="countdown__number"></div>
+											<span class="countdown__time-division">seconds</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		{% endif %}
+
+	</section>
+
+{% endif %}
