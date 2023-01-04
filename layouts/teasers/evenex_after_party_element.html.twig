@@ -1,0 +1,35 @@
+{% if content %}
+	<div {{ attributes.addClass('evenex-ap')}}>
+		{% if content.image|has_value %}
+			<div {{ region_attributes.image.addClass('evenex-ap__image') }}>
+				{{ content.image }}
+			</div>
+		{% endif %}
+		{% if content.title|has_value or content.subtitle|has_value or content.icon|has_value %}
+			<div class="wrapper">
+				{% if content.title|has_value or content.subtitle|has_value %}
+					<div class="evenex-ap__text__inner">
+						{% if content.title|has_value %}
+							<h3 {{ region_attributes.title.addClass('evenex-ap__text__title') }}>
+								{{ content.title }}
+							</h3>
+						{% endif %}
+
+						{% if content.subtitle|has_value %}
+							<div {{ region_attributes.subtitle.addClass('evenex-ap__text__subtitle') }}>
+								{{ content.subtitle }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if content.icon|has_value %}
+					<div {{ region_attributes.title.addClass('evenex-ap__icon') }}>
+						{{ content.icon }}
+					</div>
+				{% endif %}
+
+			</div>
+		{% endif %}
+
+	</div>
+{% endif %}

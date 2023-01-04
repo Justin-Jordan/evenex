@@ -1,0 +1,14 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-after-party')}}>
+		<div class="container-fluid">
+			{% if content.content|has_value %}
+				<div class="row no-gutters">
+					{% for item in content.content|array_elements(region_attributes.content.addClass('col-sm-12 col-md-6 col-lg-6 col-xl-3')) %}
+						{{ item }}
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</section>
+
+{% endif %}
