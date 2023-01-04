@@ -1,0 +1,14 @@
+{% if content %}
+	{% if content.icon|has_value %}
+		<div {{ region_attributes.icon.addClass('evenex-feature__icon') }}>
+			{{ content.icon }}
+		</div>
+	{% endif %}
+
+	{% if content.title|has_value %}
+		<div {{ region_attributes.title.addClass('evenex-feature__title') }}>
+			{{ content.title }}
+		</div>
+	{% endif %}
+
+{% endif %}

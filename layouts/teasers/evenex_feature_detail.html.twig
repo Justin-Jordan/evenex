@@ -1,0 +1,56 @@
+{% if content %}
+	{% if content.tag|has_value %}
+		<div {{ region_attributes.tag.addClass('evenex-feature-detail__tag ') }}>
+			{{ content.tag }}
+		</div>
+	{% endif %}
+	{% if content.title|has_value %}
+		<h3 {{ region_attributes.title.addClass('evenex-feature-detail__title') }}>
+			{{ content.title }}
+		</h3>
+	{% endif %}
+
+	{% if content.description|has_value %}
+		<div {{ region_attributes.description.addClass('evenex-feature-detail__description') }}>
+			{{ content.description }}
+		</div>
+	{% endif %}
+
+	{% if content.linkOne|has_value or content.linkOneIcon|has_value or content.linkTwo|has_value or conten.linkTwoIcon|has_value %}
+		<div class="row">
+			<div class="col-sm-12 col-md-8 mx-auto">
+				<div class="row evenex-feature-detail__button__inner">
+					{% if content.linkOne|has_value or content.linkTwo|has_value %}
+						<div class="col-sm-12 col-md-6 d-md-flex justify-content-md-end">
+							<div class="evenex-feature-detail__button">
+								{% if content.linkOneIcon|has_value %}
+									{{ content.linkOneIcon }}
+								{% endif %}
+
+								{% if content.linkOne|has_value %}
+									{{ content.linkOne }}
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if content.linkTwo|has_value or content.linkTwoIcon|has_value %}
+						<div class="col-sm-12 col-md-6">
+							<div class="evenex-feature-detail__button">
+								{% if content.linkTwoIcon|has_value %}
+									{{ content.linkTwoIcon }}
+								{% endif %}
+
+								{% if content.linkTwo|has_value %}
+									{{ content.linkTwo }}
+								{% endif %}
+							</div>
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+{% endif %}

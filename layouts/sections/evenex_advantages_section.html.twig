@@ -1,0 +1,55 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-advantage')}}>
+		<div class="container-fluid">
+			<div class="row">
+				{% if content.tabOne|has_value or content.tabTwo|has_value or content.tabThree|has_value %}
+					<div class="col-sm-12 col-lg-6">
+						<div class="nav nav-pills evenex-feature__inner" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							{% if content.tabOne|has_value %}
+								<div {{ region_attributes.tabOne.addClass('evenex-feature active') }} id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home" type="div" role="tab" aria-controls="v-pills-home" aria-selected="true">
+									{{ content.tabOne }}
+								</div>
+							{% endif %}
+
+							{% if content.tabTwo|has_value %}
+								<div {{ region_attributes.tabTwo.addClass('evenex-feature') }} id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="div" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+									{{ content.tabTwo }}
+								</div>
+							{% endif %}
+
+							{% if content.tabThree|has_value %}
+								<div {{ region_attributes.tabTwo.addClass('evenex-feature') }} id="v-pills-messages-tab" data-toggle="pill" data-target="#v-pills-messages" type="div" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+									{{ content.tabThree }}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+				{% if content.contentOne|has_value or content.contentTwo|has_value or content.contentThree|has_value %}
+					<div class="col-sm-12 col-lg-6">
+						<div class="tab-content" id="v-pills-tabContent">
+							{% if content.contentOne|has_value %}
+								<div {{ region_attributes.contentOne.addClass('tab-pane evenex-feature-detail fade show active') }} id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+									{{ content.contentOne }}
+								</div>
+							{% endif %}
+
+							{% if content.contentTwo|has_value %}
+								<div {{ region_attributes.contentTwo.addClass('tab-pane evenex-feature-detail fade') }} id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+									{{ content.contentTwo }}
+								</div>
+							{% endif %}
+							{% if content.contentThree|has_value %}
+								<div {{ region_attributes.contentThree.addClass('tab-pane evenex-feature-detail fade') }} id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+									{{ content.contentThree }}
+								</div>
+							{% endif %}
+
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+{% endif %}
