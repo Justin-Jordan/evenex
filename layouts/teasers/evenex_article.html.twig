@@ -1,0 +1,35 @@
+{% if content %}
+	<div class="evenex-article">
+		{% if content.image|has_value %}
+			<div {{ region_attributes.image.addClass('evenex-article__image') }}>
+				{{ content.image }}
+			</div>
+		{% endif %}
+		{% if content.date|has_value or content.category|has_value or content.title|has_value %}
+			<div class="evenex-article__body">
+				{% if content.date|has_value or content.category|has_value %}
+					<div class="evenex-article__text">
+						{% if content.date|has_value %}
+							<div {{ region_attributes.date.addClass('evenex-article__date') }}>
+								{{ content.date }}
+							</div>
+						{% endif %}
+
+						{% if content.category|has_value %}
+							<div {{ region_attributes.category.addClass('evenex-article__category') }}>
+								{{ content.category }}
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				{% if content.title|has_value %}
+					<h3 {{ region_attributes.title.addClass('evenex-article__title') }}>
+						{{ content.title }}
+					</h3>
+				{% endif %}
+
+			</div>
+		{% endif %}
+
+	</div>
+{% endif %}
