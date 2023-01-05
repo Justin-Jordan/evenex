@@ -1,0 +1,20 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addClass('evenex-testimonial-section')}}>
+		<div class="evenex-testimonial-section__overlay"></div>
+		{% if content.testimonials|has_value %}
+			<div class="container">
+				<div class="row">
+					{{ content.testimonials }}
+				</div>
+			</div>
+		{% endif %}
+
+	</section>
+
+{% endif %}
