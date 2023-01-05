@@ -7,28 +7,31 @@ use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
 
 /**
- * Evenex Stat Bannersection php
+ * Evenex Newsletter section php
  * @Layout(
- *  id = "evenex_stat_banner_section",
- *  label = @Translation("Evenex: stat banner section"),
+ *  id = "evenex-newsletter",
+ *  label = @Translation("Evenex: newsletter section"),
  *  category = @Translation("evenex"),
  *  path = "layouts/sections",
- *  template = "stat_banner_section",
- *  library = "evenex/stat_banner_section",
- *  default_region = "stats",
+ *  template = "evenex_newsletter",
+ *  library = "evenex/newsletter",
+ *  default_region = "title",
  *  regions = {
- *      "stats" = {
- *       "label" = @Translation("Evenex: stats region"),
+ *      "title" = {
+ *       "label" = @Translation("Evenex: title region"),
+ *      },
+ *      "form" = {
+ *       "label" = @Translation("Evenex: form region"),
  *      },
  *      "backgroundImage" = {
- *       "label" = @Translation("Evenex: background image"),
+ *       "label" = @Translation("Evenex: background image region"),
  *      },
  *      
  *  }
  * )
  */
 
-class EvenexSTatBannerSection extends FormatageModelsSection
+class EvenexNewsletter extends FormatageModelsSection
 {
 
     /**
@@ -39,7 +42,7 @@ class EvenexSTatBannerSection extends FormatageModelsSection
     {
         // TODO auto-generated method stub
         parent::__construct($configuration, $pludin_id, $plugin_definition, $styleGroupManager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/stat_banner.png");
+        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/evenex_newsletter.png");
     }
 
     /**
@@ -63,12 +66,7 @@ class EvenexSTatBannerSection extends FormatageModelsSection
         return parent::defaultConfiguration() + [
             'css' => '',
             'load_library' => true,
-            "derivate" => [
-                'value' => '',
-                'options' => [
-                    'evenex-stat-banner--purple' => 'purple',
-                ],
-            ],
+            'region_css_title' => 'h4',
             'content' => [
                 'builder-form' => true,
                 'info' => [
@@ -76,16 +74,25 @@ class EvenexSTatBannerSection extends FormatageModelsSection
                     'loader' => 'static',
                 ],
                 'fields' => [
-                    'stats' => [
+                    'title' => [
                         'text' => [
-                            'label' => 'Stat',
-                            'value' => '',
+                            'label' => 'Title',
+                            'value' => 'Get notified about the event! Subscribe today!',
+                        ]
+                    ],
+                    'form' => [
+                        'text_html' => [
+                            'label' => 'Subscribe form',
+                            'value' => '<form action="#" class="evenex-newsletter__form">
+                            <input type="text" class="evenex-newsletter__form__input" placeholder="Enter your email">
+                            <button type="submit" class="evenex-newsletter__form__button">Submit</button>
+                        </form>',
                         ]
                     ],
                     'backgroundImage' => [
-                        'text' => [
+                        'text_html' => [
                             'label' => 'Background Image',
-                            'value' => '',
+                            'value' => ''
                         ]
                     ],
                 ],

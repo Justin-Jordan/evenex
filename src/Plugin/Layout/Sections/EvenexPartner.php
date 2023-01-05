@@ -7,28 +7,28 @@ use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
 
 /**
- * Evenex Stat Bannersection php
+ * Evenex Partner section
  * @Layout(
- *  id = "evenex_stat_banner_section",
- *  label = @Translation("Evenex: stat banner section"),
+ *  id = "evenex-partner",
+ *  label = @Translation("Evenex: Partner section"),
  *  category = @Translation("evenex"),
  *  path = "layouts/sections",
- *  template = "stat_banner_section",
- *  library = "evenex/stat_banner_section",
- *  default_region = "stats",
+ *  template = "evenex_partner",
+ *  library = "evenex/evenex_partner",
+ *  default_region = "title",
  *  regions = {
- *      "stats" = {
- *       "label" = @Translation("Evenex: stats region"),
+ *      "title" = {
+ *       "label" = @Translation("Evenex: title"),
  *      },
- *      "backgroundImage" = {
- *       "label" = @Translation("Evenex: background image"),
+ *      "logos" = {
+ *       "label" = @Translation("Evenex: logos"),
  *      },
  *      
  *  }
  * )
  */
 
-class EvenexSTatBannerSection extends FormatageModelsSection
+class EvenexPartner extends FormatageModelsSection
 {
 
     /**
@@ -39,7 +39,7 @@ class EvenexSTatBannerSection extends FormatageModelsSection
     {
         // TODO auto-generated method stub
         parent::__construct($configuration, $pludin_id, $plugin_definition, $styleGroupManager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/stat_banner.png");
+        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/evenex_partner.png");
     }
 
     /**
@@ -63,12 +63,6 @@ class EvenexSTatBannerSection extends FormatageModelsSection
         return parent::defaultConfiguration() + [
             'css' => '',
             'load_library' => true,
-            "derivate" => [
-                'value' => '',
-                'options' => [
-                    'evenex-stat-banner--purple' => 'purple',
-                ],
-            ],
             'content' => [
                 'builder-form' => true,
                 'info' => [
@@ -76,15 +70,15 @@ class EvenexSTatBannerSection extends FormatageModelsSection
                     'loader' => 'static',
                 ],
                 'fields' => [
-                    'stats' => [
+                    'title' => [
                         'text' => [
-                            'label' => 'Stat',
-                            'value' => '',
+                            'label' => 'Title',
+                            'value' => 'Latest from Newsroom',
                         ]
                     ],
-                    'backgroundImage' => [
-                        'text' => [
-                            'label' => 'Background Image',
+                    'logos' => [
+                        'text_html' => [
+                            'label' => 'Logos',
                             'value' => '',
                         ]
                     ],

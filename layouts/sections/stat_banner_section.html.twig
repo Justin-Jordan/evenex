@@ -1,4 +1,10 @@
 {% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
 	<section {{ attributes.addClass('evenex-stat-banner')}}>
 		<div class="overlay"></div>
 		<div class="container">

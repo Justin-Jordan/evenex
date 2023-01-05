@@ -1,0 +1,32 @@
+{% if content %}
+	<section {{ attributes.addClass('evenex-partner')}}>
+		<div class="evenex-partner__overlay"></div>
+		<div class="container">
+			{% if content.title|has_value %}
+				<div class="row">
+					<div class="col-12">
+						<h2 {{ region_attributes.title.addClass('evenex-partner__title') }}>
+							{{ content.title }}
+						</h2>
+					</div>
+				</div>
+			{% endif %}
+
+			{% if content.logos|has_value %}
+				<div class="row no-gutters">
+						{% for item in content.logos|array_elements(region_attributes.logos.addClass('')) %}
+					<div class="col-6 col-md-3 mx-auto">
+							<div class="evenex-partner__image__inner">
+								<div class="evenex-partner__image">
+									{{ item }}
+								</div>
+							</div>
+					</div>
+						{% endfor %}
+				</div>
+			{% endif %}
+
+		</div>
+	</section>
+
+{% endif %}

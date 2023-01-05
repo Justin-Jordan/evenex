@@ -19,13 +19,16 @@
 					{% if content.title|has_value %}
 						<div class="col-sm-12 col-md-6 col-lg-6 mx-auto">
 							<h2 {{ region_attributes.title.addClass('evenex-conference__title') }}>
-								{{ content.date }}
+								{{ content.title }}
 							</h2>
 						</div>
 					{% endif %}
 					{% if content.countdownDate|has_value %}
 						{% set countdownDate %}{{content.countdownDate|layout_value}}{% endset %}
 						<div id="evenex-conference-countdown" {{ region_attributes.number.addClass(['countdown__inner']) }} data-date="{{ countdownDate|striptags|trim }}">
+							{% if content.countdownDate.layout_builder_add_block %}
+								{{ content.countdownDate }}
+							{% endif %}
 							<div class="col-sm-12 col-md-8 mx-auto">
 								<div class="row">
 									<div class="col-sm-12 col-md-6 col-lg-3">

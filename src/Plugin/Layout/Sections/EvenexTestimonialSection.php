@@ -7,39 +7,38 @@ use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
 
 /**
- * Evenex Stat Bannersection php
+ * Evenex Testimonial section
  * @Layout(
- *  id = "evenex_stat_banner_section",
- *  label = @Translation("Evenex: stat banner section"),
+ *  id = "evenex-testimonial-section",
+ *  label = @Translation("Evenex: Testimonial section"),
  *  category = @Translation("evenex"),
  *  path = "layouts/sections",
- *  template = "stat_banner_section",
- *  library = "evenex/stat_banner_section",
- *  default_region = "stats",
+ *  template = "evenex_testimonial_section",
+ *  library = "evenex/evenex_testimonial_section",
+ *  default_region = "testimonials",
  *  regions = {
- *      "stats" = {
- *       "label" = @Translation("Evenex: stats region"),
+ *      "testimonials" = {
+ *       "label" = @Translation("Evenex: testimonials"),
  *      },
  *      "backgroundImage" = {
  *       "label" = @Translation("Evenex: background image"),
  *      },
- *      
  *  }
  * )
  */
 
-class EvenexSTatBannerSection extends FormatageModelsSection
+class EvenexTestimonialSection extends FormatageModelsSection
 {
 
     /**
      * {@inheritdoc}
-     * @see Drupal\formatage_models\Plugin\Layout\FormatageModels::_construct
+     * @see Drupal\formaswipertage_models\Plugin\Layout\FormatageModels::_construct
      */
     public function __construct(array $configuration, $pludin_id, $plugin_definition, StylesGroupManager $styleGroupManager)
     {
         // TODO auto-generated method stub
         parent::__construct($configuration, $pludin_id, $plugin_definition, $styleGroupManager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/stat_banner.png");
+        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/evenex_testimonial_section.png");
     }
 
     /**
@@ -63,12 +62,6 @@ class EvenexSTatBannerSection extends FormatageModelsSection
         return parent::defaultConfiguration() + [
             'css' => '',
             'load_library' => true,
-            "derivate" => [
-                'value' => '',
-                'options' => [
-                    'evenex-stat-banner--purple' => 'purple',
-                ],
-            ],
             'content' => [
                 'builder-form' => true,
                 'info' => [
@@ -76,14 +69,14 @@ class EvenexSTatBannerSection extends FormatageModelsSection
                     'loader' => 'static',
                 ],
                 'fields' => [
-                    'stats' => [
-                        'text' => [
-                            'label' => 'Stat',
+                    'testimonials' => [
+                        'text_html' => [
+                            'label' => 'Testimonials',
                             'value' => '',
                         ]
                     ],
                     'backgroundImage' => [
-                        'text' => [
+                        'text_html' => [
                             'label' => 'Background Image',
                             'value' => '',
                         ]

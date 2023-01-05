@@ -1,0 +1,22 @@
+{% if content %}
+	{% if content.backgroundImage.layout_builder_add_block %}
+		{{ content.backgroundImage }}
+	{% endif %}
+	{% if content.backgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
+	{% endif %}
+
+	<section {{ attributes.addClass('evenex-newsletter')}}>
+		<div class="evenex-newsletter__content">
+			{% if content.title|has_value %}
+				<h3 {{ region_attributes.title.addClass('evenex-newsletter__title') }}>
+					{{ content.title }}
+				</h3>
+			{% endif %}
+			{% if content.form|has_value %}
+				{{ content.form }}
+			{% endif %}
+
+		</div>
+	</section>
+{% endif %}
