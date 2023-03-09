@@ -1,0 +1,110 @@
+{% if content %}
+{% if content.mainBackgroundImage.layout_builder_add_block %}
+		{{ content.mainBackgroundImage }}
+	{% endif %}
+	{% if content.mainBackgroundImage|layout_bg_img %}
+		{% set attributes = attributes.merge(content.mainBackgroundImage|layout_bg_img) %}
+	{% endif %}
+	<section {{ attributes.addClass('section-hero')}}>
+		<div class="hero-container">
+			<div class="first-image">
+				<img width="520" height="221" src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-top-shpe.png" class="attachment-large size-large" alt="" loading="lazy" srcset="
+																																																		          https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-top-shpe.png         520w,
+																																																		          https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-top-shpe-300x128.png 300w
+																																																		        " sizes="(max-width: 520px) 100vw, 520px"/>
+			</div>
+			{% if content.secondaryBackgroundImage|has_value %}
+				<div {{ region_attributes.secondaryBackgroundImage.addClass('elementor-image') }} data-aos="fade-down" data-aos-duration="2000" data-aos-offset="300">
+					{{ content.secondaryBackgroundImage }}
+				</div>
+			{% endif %}
+
+			{% if content.date|has_value or content.by|has_value or content.title|has_value or content.subTitle|has_value or content.location|has_value %}
+				<div class="sous-section-primaire">
+					{% if content.location|has_value %}
+						<div {{ region_attributes.location.addClass('location') }} data-aos="fade-up" data-aos-duration="2000">
+							<svg viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10 2.009c-2.762 0-5 2.229-5 4.99 0 4.774 5 11 5 11s5-6.227 5-11c0-2.76-2.238-4.99-5-4.99zm0 7.751a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4z"/>
+							</svg>
+							<h5 class="place h4">{{ content.location }}</h5>
+						</div>
+					{% endif %}
+
+					{% if content.subTitle|has_value %}
+						<h4 {{ region_attributes.subTitle.addClass('subtitle font-weight-bolder') }} data-aos="fade-up" data-aos-duration="2000">
+							{{ content.subTitle }}
+						</h4>
+					{% endif %}
+
+					{% if content.title|has_value %}
+						<h1 {{ region_attributes.title.addClass('title wbu-titre-suppra') }} data-aos="fade-up">
+							{{ content.title }}
+						</h1>
+					{% endif %}
+
+					{% if content.by|has_value %}
+						<h6 {{ region_attributes.by.addClass('details font-weight-bolder d-flex align-item-center justify-content-center') }} data-aos="fade-up">
+							{{ content.by }}
+						</h6>
+					{% endif %}
+
+					{% if content.date|has_value %}
+						<h6 {{ region_attributes.date.addClass('date font-weight-bolder') }} data-aos="fade-up" data-aos-duration="2000">
+							{{ region.date }}
+						</h6>
+					{% endif %}
+
+				</div>
+			{% endif %}
+
+			<div class="sous-section-secondaire">
+				{% if content.callToActionIcon|has_value or content.callToAction|has_value %}
+					<div class="btn button" data-aos="fade-up" data-aos-duration="2000">
+						{% if content.callToAction|has_value %}
+							{{ content.callToAction }}
+						{% endif %}
+
+						{% if content.callToActionIcon|has_value %}
+							{{ content.callToActionIcon }}
+						{% endif %}
+
+					</div>
+				{% endif %}
+
+				<div class="mouse">
+					<a href="#">
+						<svg xmlns="http://www.w3.org/2000/svg" width="26" height="41" viewbox="0 0 26 41">
+							https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-left-shape.png<g id="Group_75" data-name="Group 75" transform="translate(-243 -803)">
+								<g id="Rectangle_8" data-name="Rectangle 8" transform="translate(243 803)" fill="none" stroke="#fff" stroke-width="2">
+									<path d="M13,0h0A13,13,0,0,1,26,13V34.067A6.933,6.933,0,0,1,19.067,41H6.933A6.933,6.933,0,0,1,0,34.067V13A13,13,0,0,1,13,0Z" stroke="none"></path>
+									<path d="M13,1h0A12,12,0,0,1,25,13V34a6,6,0,0,1-6,6H7a6,6,0,0,1-6-6V13A12,12,0,0,1,13,1Z" fill="none"></path>
+								</g>
+								<rect id="Rectangle_9" data-name="Rectangle 9" width="3" height="11" rx="1.5" transform="translate(255 819)" fill="#fff"></rect>
+							</g>
+						</svg>
+					</a>
+				</div>
+				<div class="arrow">
+					<svg width="800px" height="800px" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h48v48H0z" fill="none"/>
+						<g id="Shopicon">
+							<polygon points="24,29.172 9.414,14.586 6.586,17.414 24,34.828 41.414,17.414 38.586,14.586 	"/>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<div class="second-image">
+				<img width="172" height="418" src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-left-shape.png" class="attachment-large size-large" alt="" loading="lazy" srcset="
+																																																		          https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-left-shape.png         172w,
+																																																		          https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-left-shape-123x300.png 123w
+																																																		        " sizes="(max-width: 172px) 100vw, 172px"/>
+			</div>
+		</div>
+	</section>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+
+{% endif %}

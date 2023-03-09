@@ -2,9 +2,11 @@
 	<div {{ attributes.addClass('evenex-speaker3')}}>
 		{% if content.image|has_value or content.social|has_value %}
 			<figure {{ region_attributes.image.addClass('evenex-speaker3__image') }}>
-				{% if content.image|has_value %}
-					{{ content.image }}
-				{% endif %}
+				<div class="image">
+					{% if content.image|has_value %}
+						{{ content.image }}
+					{% endif %}
+				</div>
 
 				{% if content.social|has_value %}
 					<div {{ region_attributes.social.addClass('evenex-speaker3__social') }}>
