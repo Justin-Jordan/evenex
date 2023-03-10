@@ -9,7 +9,7 @@
 		<div class="evenex-conference__overlay"></div>
 		{% if content.date|has_value or content.title|has_value or content.countdownDate|has_value %}
 			<div class="container">
-				<div class="evenex-conference__inner space-padding">
+				<div class="evenex-conference__inner">
 					{% if content.date|has_value %}
 						<div {{ region_attributes.date.addClass('evenex-conference__subtitle') }}>
 							{{ content.date }}
