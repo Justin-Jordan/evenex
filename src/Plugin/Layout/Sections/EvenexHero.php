@@ -118,7 +118,7 @@ class EvenexHero extends FormatageModelsSection
                             'value' => '',
                         ]
                     ],
-                    'secondaryBackgroundImage' => [
+                    'secondadyBackgroundImage' => [
                         'text_html' => [
                             'label' => 'Secondary Background Image',
                             'value' => '',

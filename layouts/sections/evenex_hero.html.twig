@@ -13,9 +13,9 @@
 																																																		          https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/02/banner-top-shpe-300x128.png 300w
 																																																		        " sizes="(max-width: 520px) 100vw, 520px"/>
 			</div>
-			{% if content.secondaryBackgroundImage|has_value %}
-				<div {{ region_attributes.secondaryBackgroundImage.addClass('elementor-image') }} data-aos="fade-down" data-aos-duration="2000" data-aos-offset="300">
-					{{ content.secondaryBackgroundImage }}
+			{% if content.secondadyBackgroundImage|has_value %}
+				<div {{ region_attributes.secondadyBackgroundImage.addClass('elementor-image') }} data-aos="fade-down" data-aos-duration="2000" data-aos-offset="300">
+					{{ content.secondadyBackgroundImage }}
 				</div>
 			{% endif %}
 
@@ -50,10 +50,9 @@
 
 					{% if content.date|has_value %}
 						<h6 {{ region_attributes.date.addClass('date font-weight-bolder') }} data-aos="fade-up" data-aos-duration="2000">
-							{{ region.date }}
+							{{ content.date }}
 						</h6>
 					{% endif %}
-
 				</div>
 			{% endif %}
 
