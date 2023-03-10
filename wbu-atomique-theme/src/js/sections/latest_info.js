@@ -1,2 +1,2 @@
-import "@stephane888/wbu-atomique/scss/organisme/sections/theme_builder/evenex2/evenex-countdown.scss";
+import "@stephane888/wbu-atomique/scss/organisme/sections/theme_builder/evenex2/evenex-countdown-section.scss";
 import "@stephane888/wbu-atomique/scss/organisme/sections/theme_builder/evenex2/js/countdown.js";
