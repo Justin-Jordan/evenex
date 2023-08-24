@@ -67,6 +67,7 @@ class EvenexSpeakerSection extends FormatageModelsSection
             'css' => '',
             'load_library' => true,
             'region_css_title' => 'h1',
+            'region_css_speakers' => "col-lg-6 col-md-6",
             'content' => [
                 'builder-form' => true,
                 'info' => [
