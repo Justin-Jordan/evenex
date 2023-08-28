@@ -57,7 +57,7 @@ class EvenexHeroSection extends FormatageModelsSection
     {
         // TODO auto-generated method stub
         parent::__construct($configuration, $pludin_id, $plugin_definition, $styleGroupManager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/sections/hero_section.png");
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'evenex') . "/icones/sections/hero_section.png");
     }
 
     /**

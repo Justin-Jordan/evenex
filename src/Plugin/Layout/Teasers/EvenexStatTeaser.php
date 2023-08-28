@@ -39,7 +39,7 @@ class EvenexStatTeaser extends FormatageModelsSection
     {
         // TODO Auto-generated method stub
         parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'evenex') . "/icones/teasers/stat.png");
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'evenex') . "/icones/teasers/stat.png");
     }
 
     /**
