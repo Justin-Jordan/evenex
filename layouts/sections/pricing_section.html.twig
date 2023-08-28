@@ -6,12 +6,16 @@
 		{% set attributes = attributes.merge(content.backgroundImage|layout_bg_img) %}
 	{% endif %}
 	<section {{ attributes.addclass('evenex-pricing')}}>
-		<div class="evenex-pricing__over-image1">
-			<img src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/10/pricing_left_shap.png">
+		{% if content.icon_left %}
+		<div {{ region_attributes.icon_left.addClass(['icon_left','evenex-pricing__over-image1']) }}>
+			{{ content.icon_left }}
 		</div>
-		<div class="evenex-pricing__over-image2">
-			<img src="https://demo.xpeedstudio.com/evenex/conference/wp-content/uploads/sites/2/2020/10/pticing_right_shap.png" alt="">
+		{% endif %}
+		{% if content.icon_right %}
+		<div  {{ region_attributes.icon_right.addClass(['icon_right','evenex-pricing__over-image2']) }}>
+			{{ content.icon_right }}
 		</div>
+		{% endif %}
 		<div class="evenex-pricing__background-overlay"></div>
 		{% if content.title|has_value %}
 			<h2 {{ region_attributes.title.addClass('evenex-pricing__title') }}>
