@@ -1,6 +1,5 @@
 {% if content %}
 	<section {{ attributes.addClass('evenex-room')}}>
-		<div class="container">
 			{% if content.imageOne|has_value or content.imageTwo|has_value %}
 				<div class="row mb-5">
 					{% if content.imageOne|has_value %}
@@ -49,7 +48,6 @@
 					{% endif %}
 				</div>
 			{% endif %}
-		</div>
 	</section>
 
 {% endif %}
